@@ -89,10 +89,7 @@ fun CpuKillerApp() {
 
                 Spacer(Modifier.height(16.dp))
                 Text("PERFORMANCE", fontWeight = FontWeight.Bold, fontSize = 18.sp)
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
+                Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
                     Text("Performance mode", Modifier.weight(1f))
                     Switch(checked = performance, onCheckedChange = {
                         performance = it
@@ -119,7 +116,23 @@ fun CpuKillerApp() {
                     Text("THERMAL SAFETY")
                 }
 
-                Spacer(Modifier.height(24.dp))
+                Spacer(Modifier.height(18.dp))
+                Card(
+                    colors = CardDefaults.cardColors(containerColor = Color(0xFF11131A)),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Column(Modifier.padding(18.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+                        Text("ABOUT CPU KILLER", fontWeight = FontWeight.Bold, fontSize = 17.sp)
+                        Spacer(Modifier.height(8.dp))
+                        Text("Created by", color = Color.Gray, fontSize = 12.sp)
+                        Text("ANIRUDDHA DEBBARMA", fontWeight = FontWeight.Black, fontSize = 20.sp, color = Color(0xFFFF3B30))
+                        Text("ANI STUDIO", fontWeight = FontWeight.Bold, color = Color(0xFFFF6B35))
+                        Spacer(Modifier.height(6.dp))
+                        Text("CPU KILLER is an ANI STUDIO project.", color = Color.Gray, fontSize = 11.sp)
+                    }
+                }
+
+                Spacer(Modifier.height(20.dp))
                 Text("CPU KILLER v1.0 • ANI STUDIO", color = Color.Gray, fontSize = 11.sp)
                 Text(
                     "Actual overclocking depends on the rooted kernel. CPU KILLER does not bypass hardware or kernel limits.",
