@@ -3,6 +3,7 @@ package com.anistudio.cpukiller
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -11,6 +12,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.text.font.FontWeight
@@ -57,8 +59,15 @@ fun CpuKillerApp() {
     )) {
         Surface(color = Color(0xFF08090D), modifier = Modifier.fillMaxSize()) {
             Column(
-                Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(20.dp)
+                Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(20.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
+                Image(
+                    painter = painterResource(id = com.anistudio.cpukiller.R.drawable.cpu_killer_logo),
+                    contentDescription = "CPU KILLER logo",
+                    modifier = Modifier.size(132.dp)
+                )
+                Spacer(Modifier.height(6.dp))
                 Text("CPU KILLER", fontSize = 32.sp, fontWeight = FontWeight.Black, color = Color(0xFFFF3B30))
                 Text("ROOT CPU CONTROL", color = Color.LightGray, fontSize = 12.sp)
                 Spacer(Modifier.height(22.dp))
@@ -80,7 +89,10 @@ fun CpuKillerApp() {
 
                 Spacer(Modifier.height(16.dp))
                 Text("PERFORMANCE", fontWeight = FontWeight.Bold, fontSize = 18.sp)
-                Row(verticalAlignment = Alignment.CenterVertically) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
                     Text("Performance mode", Modifier.weight(1f))
                     Switch(checked = performance, onCheckedChange = {
                         performance = it
