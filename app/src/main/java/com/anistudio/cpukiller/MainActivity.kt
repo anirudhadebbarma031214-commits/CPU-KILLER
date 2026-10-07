@@ -37,7 +37,7 @@ class MainActivity : ComponentActivity() {
 }
 
 private fun readText(path: String): String? = try {
-    File(path).takeIf { it.canRead() }?.readText().trim()
+    File(path).takeIf { it.canRead() }?.readText()?.trim()
 } catch (_: Exception) { null }
 
 private fun rootAvailable(): Boolean = try {
